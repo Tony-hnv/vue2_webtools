@@ -10,6 +10,8 @@
 
 <script>
 import { marked } from 'marked'
+// import hljs from 'highlight.js'
+import 'highlight.js/styles/atom-one-dark.css'
 export default {
   name: 'mdNote',
   data () {
@@ -19,7 +21,7 @@ export default {
   },
   computed: {
     htmlNote () {
-      return marked.parse(this.mdNote)
+      return marked(this.mdNote)
     }
   }
 }
@@ -55,7 +57,7 @@ export default {
     width: 40%;
     margin-right: 1.25rem /* 20/16 */;
     float: right;
-    padding: .3125rem /* 5/16 */;
+    // padding: .3125rem /* 5/16 */;
     border: .125rem /* 2/16 */ solid #ccc;
     background-color: rgba(3, 2, 2, 0.805);
     color: #fff;
