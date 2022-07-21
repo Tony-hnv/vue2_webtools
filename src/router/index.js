@@ -8,6 +8,7 @@ import index from '../views/index.vue'
 import Bilibili from '../views/Bilibili.vue'
 import Telnumber from '../views/Telnumber.vue'
 import History from '../views/History.vue'
+import MarkDown from '../views/MdNotebook.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,10 @@ const routes = [
     path: '/wether',
     name: 'Wether',
     component: Wether
+  }, {
+    path: '/md',
+    name: 'MarkDown',
+    component: MarkDown
   }, {
     path: '/about',
     name: 'About',
