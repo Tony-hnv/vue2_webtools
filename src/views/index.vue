@@ -15,6 +15,9 @@
     <div class="history">
       <router-link to="/history" class="link" >历史上的今天</router-link>
     </div>
+    <div class="MdEditor">
+      <router-link to="/md" class="link" >在线MarkDown编辑器</router-link>
+    </div>
     <div class="about">
       <router-link to="/about" class="link" >关于</router-link>
     </div>
@@ -136,6 +139,24 @@ export default {
       color: white
     }
   }
+
+  .MdEditor {
+    background: url('../asserts/img/Markdown.png');
+    background-size: cover;
+    // background-position: center center;
+    filter:blur(0.6px);
+    border-radius: 15px;
+    border: 0.01px solid rgb(158, 158, 156);
+    overflow: hidden;
+    margin-left: 15px;
+    margin-top: 5px;
+    width: 315px;
+    height: 210px;
+    .link {
+      color: #fff;
+    }
+  }
+
   .about {
     background-size: cover;
     // background-position: center center;
@@ -148,9 +169,6 @@ export default {
     margin-top: 5px;
     width: 315px;
     height: 210px;
-    .link {
-
-    }
   }
 }
 </style>

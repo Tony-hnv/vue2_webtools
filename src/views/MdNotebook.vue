@@ -1,10 +1,10 @@
 <template>
   <div class="MdNotebook-container">
-    <p class='title'>在线 MarkDown编辑器</p>
-    <div class="mdNote">
-      <textarea v-model="mdNote" id="Note"></textarea>
+    <span class='title'> MarkDown Editor Online</span>
+    <section class="mdNote">
+      <textarea @click="onFocus()" v-model="mdNote" id="Note"></textarea>
       <aside class="toMd" id='Md' v-html="htmlNote"></aside>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
   computed: {
     htmlNote () {
       return marked(this.mdNote)
+    }
+  },
+  methods: {
+    onFocus () {
+      this.$refs.textarea.focus.classList.add('focus')
     }
   }
 }
@@ -41,6 +46,10 @@ export default {
     font-weight: bold;
     color: #333;
     margin-bottom: 1rem;
+    &:hover {
+      color: #666;
+      text-shadow: 1rem 1rem 1rem skyblue;
+    }
   }
   .mdNote {
   display: flex;
@@ -52,6 +61,9 @@ export default {
     height: 90vh;
     margin-left: 1.25rem /* 20/16 */;
     padding: .3125rem /* 5/16 */;
+    &:focus {
+      box-shadow: 1rem 1rem 1rem skyblue;
+    }
   }
   #Md {
     width: 40%;
@@ -59,7 +71,7 @@ export default {
     float: right;
     // padding: .3125rem /* 5/16 */;
     border: .125rem /* 2/16 */ solid #ccc;
-    background-color: rgba(3, 2, 2, 0.805);
+    background-color: rgb(114, 110, 110);
     color: #fff;
   }
 }
