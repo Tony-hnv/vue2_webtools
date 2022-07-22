@@ -103,9 +103,6 @@ export default {
   background-size: cover;
   // background-position: center center;
 
-  .info {
-
-  }
   .box {
     display: flex;
   }
