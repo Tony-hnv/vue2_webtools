@@ -160,12 +160,14 @@ export default {
       left: 49%;
       top: 840px;
       color: white;
+      text-decoration: none;
     }
     .index {
       position: fixed;
       left: 47%;
       top: 865px;
       color: white;
+      text-decoration: none;
     }
   }
 }

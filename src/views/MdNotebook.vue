@@ -5,6 +5,10 @@
       <textarea @click="onFocus()" v-model="mdNote" id="Note"></textarea>
       <aside class="toMd" id='Md' v-html="htmlNote"></aside>
     </section>
+    <div class="footer">
+      <router-link class="about" to="/about">关于</router-link>
+      <router-link class="index" to="/index">返回首页</router-link>
+    </div>
   </div>
 </template>
 
@@ -58,7 +62,7 @@ export default {
   width: 100%;
   #Note {
     width: 40%;
-    height: 90vh;
+    height: 82vh;
     margin-left: 1.25rem /* 20/16 */;
     padding: .3125rem /* 5/16 */;
     &:focus {
@@ -75,6 +79,24 @@ export default {
     color: #fff;
   }
 }
+ .footer {
+    position: relative;
+    color: #666;
+    .about {
+      position: fixed;
+      left: 49%;
+      top: 840px;
+      color: #666;
+      text-decoration: none;
+    }
+    .index {
+      position: fixed;
+      left: 47%;
+      top: 860px;
+      color: #666;
+      text-decoration: none;
+    }
+  }
 }
 
 </style>

@@ -153,12 +153,13 @@ export default {
       position: fixed;
       left: 49%;
       top: 840px;
+      text-decoration: none;
     }
     .index {
       position: fixed;
       left: 47%;
       top: 860px;
-
+      text-decoration: none;
     }
   }
 }
