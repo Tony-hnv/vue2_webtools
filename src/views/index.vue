@@ -2,35 +2,82 @@
   <div class="index-container">
     <span>Web Tools</span>
     <div class="index">
-      <div class="wyy">
-        <router-link to="/wyy" class="link">网易云用户信息查询</router-link>
+      <div class="wyy" name='查询网易云用户信息' ref="wyy" @mouseenter="getWyyName()" @mouseleave="clear()" @click="toWyy()">
       </div>
-      <div class="tq">
-        <router-link to="/wether" class="link" >查询全国天气</router-link>
+      <div class="tq" name='查询今日天气' ref="tq" @mouseleave="clear()" @mouseenter="getTqName()"  @click="toWether()">
       </div>
-      <div class="blfm">
-        <router-link to="/bilibili" class="link" >Bilibili用户信息获取</router-link>
+      <div class="blfm" name='查询b站用户信息' ref="blfm" @mouseenter="getBlfmName()" @mouseleave="clear()"  @click="toBilibili()">
       </div>
-      <div class="telno">
-        <router-link to="/telnumber" class="link" >号码归属地查询</router-link>
+      <div class="telno" name='查询手机号信息' ref="telno" @mouseenter="getTelnoName()" @mouseleave="clear()"  @click="toTel()">
       </div>
-      <div class="history">
-        <router-link to="/history" class="link" >历史上的今天</router-link>
+      <div class="history" name='历史上的今日' ref="history" @mouseenter="getHistoryName()" @mouseleave="clear()" @click="toHistory()">
       </div>
-      <div class="MdEditor">
-        <router-link to="/md" class="link" >在线MarkDown编辑器</router-link>
+      <div class="MdEditor" name='在线md编辑器' ref="mdEditor" @mouseenter="getMdEditorName()" @mouseleave="clear()" @click="toMd()">
       </div>
-      <div class="about">
-        <router-link to="/about" class="link" >关于</router-link>
+      <div class="about" name='本站关于页面' ref="about" @mouseenter="getAboutName()" @mouseleave="clear()" @click="toAbout()">
       </div>
     </div>
+    <span v-text='title'></span>
   </div>
 </template>
 
 <script>
 export default {
-
+  name: 'index',
+  data () {
+    return {
+      title: '请选择一个功能'
+    }
+  },
+  methods: {
+    clear () {
+      this.title = '请选择一个功能'
+    },
+    getWyyName () {
+      this.title = this.$refs.wyy.getAttribute('name')
+    },
+    getTqName () {
+      this.title = this.$refs.tq.getAttribute('name')
+    },
+    getBlfmName () {
+      this.title = this.$refs.blfm.getAttribute('name')
+    },
+    getTelnoName () {
+      this.title = this.$refs.telno.getAttribute('name')
+    },
+    getHistoryName () {
+      this.title = this.$refs.history.getAttribute('name')
+    },
+    getMdEditorName () {
+      this.title = this.$refs.mdEditor.getAttribute('name')
+    },
+    getAboutName () {
+      this.title = this.$refs.about.getAttribute('name')
+    },
+    toWyy () {
+      this.$router.push('/wyy')
+    },
+    toBilibili () {
+      this.$router.push('/bilibili')
+    },
+    toWether () {
+      this.$router.push('/wether')
+    },
+    toTel () {
+      this.$router.push('/telnumber')
+    },
+    toHistory () {
+      this.$router.push('/history')
+    },
+    toMd () {
+      this.$router.push('/md')
+    },
+    toAbout () {
+      this.$router.push('/about')
+    }
+  }
 }
+
 </script>
 
 <style lang="less" scoped>
@@ -47,8 +94,7 @@ export default {
     margin-top: 5rem;
     margin-bottom: 5rem;
     &:hover {
-      color: #fff;
-      text-shadow: 1rem 1rem 1rem skyblue;
+      text-shadow: 1rem 1rem 1rem rgba(63, 91, 233, 0.741);
     }
   }
 }
@@ -58,40 +104,22 @@ export default {
   justify-content: space-around;
   align-items: center;
 
-  .link {
-    text-decoration: none;
-    display: block;
-    height: 11.875rem /* 190/16 */;
-    width: 18.75rem /* 300/16 */;
-    height: 12.5rem /* 200/16 */;
-    margin-bottom: .625rem /* 10/16 */;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: .9375rem /* 15/16 */;
-    border-radius: .9375rem /* 15/16 */;
-    color: black;
-    font-size: 1.4375rem /* 23/16 */;
-    font-weight: 50rem /* 800/16 */;
-    letter-spacing: .25rem /* 4/16 */;
-    text-align: center;
-    line-height: 20.625rem /* 330/16 */;
-  }
   :hover {
-    transition: transform .3s, box-shadow .3s;
-    transform: translateY(-4px);
-    flex-basis: 40%;
+    // filter:blur(.0625rem /* 1/16 */);
+    transition: transform .5s, box-shadow .5s;
+    transform: translateY(-.3125rem /* 5/16 */);
+    flex-basis: 30%;
   }
    .wyy {
     background: url('../asserts/img/wyy-item.jpg');
     background-size: cover;
-    filter:blur(.0375rem /* 0.6/16 */);
     border-radius: .9375rem /* 15/16 */;
     background-size: cover;
     border: .25rem /* 4/16 */ solid #fff;
     overflow: hidden;
     margin-left: .9375rem /* 15/16 */;
     margin-top: .3125rem /* 5/16 */;
-    // width: 17.5rem /* 280/16 */;
+    width: 17.5rem /* 280/16 */;
     height: 20rem /* 320/16 */;
     object-fit: cover;
     transition: .5s;
@@ -108,7 +136,7 @@ export default {
     overflow: hidden;
     margin-left: .9375rem /* 15/16 */;
     margin-top: .3125rem /* 5/16 */;
-    // width: 17.5rem /* 280/16 */;
+    width: 17.5rem /* 280/16 */;
     height: 20rem /* 320/16 */;
     object-fit: cover;
     transition: .5s;
@@ -124,7 +152,7 @@ export default {
     overflow: hidden;
     margin-left: .9375rem /* 15/16 */;
     margin-top: .3125rem /* 5/16 */;
-    // width: 17.5rem /* 280/16 */;
+    width: 17.5rem /* 280/16 */;
     height: 20rem /* 320/16 */;
     object-fit: cover;
     transition: .5s;
@@ -140,7 +168,7 @@ export default {
     overflow: hidden;
     margin-left: .9375rem /* 15/16 */;
     margin-top: .3125rem /* 5/16 */;
-    // width: 17.5rem /* 280/16 */;
+    width: 17.5rem /* 280/16 */;
     height: 20rem /* 320/16 */;
     object-fit: cover;
     transition: .5s;
@@ -156,7 +184,7 @@ export default {
     overflow: hidden;
     margin-left: .9375rem /* 15/16 */;
     margin-top: .3125rem /* 5/16 */;
-    // width: 17.5rem /* 280/16 */;
+    width: 17.5rem /* 280/16 */;
     height: 20rem /* 320/16 */;
     object-fit: cover;
     transition: .5s;
@@ -175,7 +203,7 @@ export default {
     overflow: hidden;
     margin-left: .9375rem /* 15/16 */;
     margin-top: .3125rem /* 5/16 */;
-    // width: 17.5rem /* 280/16 */;
+    width: 17.5rem /* 280/16 */;
     height: 20rem /* 320/16 */;
     object-fit: cover;
     transition: .5s;
@@ -192,9 +220,9 @@ export default {
     border: .25rem /* 4/16 */ solid #fff;
     background-color: rgba(0, 0, 0, 0.679);
     overflow: hidden;
-    margin-left: .9375rem /* 15/16 */;
-    margin-top: .3125rem /* 5/16 */;
-    // width: 17.5rem /* 280/16 */;
+    // margin-right: .9375rem /* 15/16 */;
+    margin: .3125rem /* 5/16 */ .9375rem /* 15/16 */ 0 .9375rem /* 15/16 */;
+    width: 17.5rem /* 280/16 */;
     height: 20rem /* 320/16 */;
     object-fit: cover;
     transition: .5s;
