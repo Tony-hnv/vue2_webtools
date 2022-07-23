@@ -2,7 +2,7 @@
   <div class="MdNotebook-container">
     <span class='title'> MarkDown Editor Online</span>
     <section class="mdNote">
-      <textarea @click="onFocus()" v-model="mdNote" id="Note"></textarea>
+      <textarea v-model="mdNote" id="Note"></textarea>
       <aside class="toMd" id='Md' v-html="htmlNote"></aside>
     </section>
     <div class="footer">
@@ -26,11 +26,6 @@ export default {
   computed: {
     htmlNote () {
       return marked(this.mdNote)
-    }
-  },
-  methods: {
-    onFocus () {
-      this.$refs.textarea.focus.classList.add('focus')
     }
   }
 }
