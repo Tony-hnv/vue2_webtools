@@ -1,6 +1,6 @@
 <template>
   <div class="index-container">
-    <span>Web Tools</span>
+    <span class='container'>Web Tools</span>
     <div class="index">
       <div class="wyy" name='查询网易云用户信息' ref="wyy" @mouseenter="getWyyName()" @mouseleave="clear()" @click="toWyy()">
       </div>
@@ -17,7 +17,7 @@
       <div class="about" name='本站关于页面' ref="about" @mouseenter="getAboutName()" @mouseleave="clear()" @click="toAbout()">
       </div>
     </div>
-    <span v-text='title'></span>
+    <span v-text='title' class="title"></span>
   </div>
 </template>
 
@@ -81,6 +81,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
 .index-container {
   // 设置背景为渐变色
   background: linear-gradient(to right, #7dd9f2a9, #2972e6db);
@@ -96,6 +97,15 @@ export default {
     &:hover {
       text-shadow: 1rem 1rem 1rem rgba(63, 91, 233, 0.741);
     }
+  }
+  .container {
+    background-image: linear-gradient(to right, rgba(191, 238, 255, 0.671), white);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title {
+    font-size: 2.1875rem /* 35/16 */;
   }
 }
 .index {
@@ -218,7 +228,7 @@ export default {
     filter:blur(.0375rem /* 0.6/16 */);
     border-radius: .9375rem /* 15/16 */;
     border: .25rem /* 4/16 */ solid #fff;
-    background-color: rgba(0, 0, 0, 0.679);
+    background-color: rgba(68, 68, 68, 0.356);
     overflow: hidden;
     // margin-right: .9375rem /* 15/16 */;
     margin: .3125rem /* 5/16 */ .9375rem /* 15/16 */ 0 .9375rem /* 15/16 */;
