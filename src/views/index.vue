@@ -1,6 +1,6 @@
 <template>
   <div class="index-container">
-    <span class='container'>Web Tools</span>
+    <span class='web'>Web Tools</span>
     <div class="index">
       <div class="wyy" name='查询网易云用户信息' ref="wyy" @mouseenter="getWyyName()" @mouseleave="clear()" @click="toWyy()">
       </div>
@@ -81,7 +81,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 .index-container {
   // 设置背景为渐变色
   background: linear-gradient(to right, #7dd9f2a9, #2972e6db);
@@ -98,7 +97,7 @@ export default {
       text-shadow: 1rem 1rem 1rem rgba(63, 91, 233, 0.741);
     }
   }
-  .container {
+  .web {
     background-image: linear-gradient(to right, rgba(191, 238, 255, 0.671), white);
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -228,7 +227,8 @@ export default {
     filter:blur(.0375rem /* 0.6/16 */);
     border-radius: .9375rem /* 15/16 */;
     border: .25rem /* 4/16 */ solid #fff;
-    background-color: rgba(68, 68, 68, 0.356);
+    // background-color: rgba(68, 68, 68, 0.356);
+    backdrop-filter: blur(3.125rem /* 50/16 */);
     overflow: hidden;
     // margin-right: .9375rem /* 15/16 */;
     margin: .3125rem /* 5/16 */ .9375rem /* 15/16 */ 0 .9375rem /* 15/16 */;
